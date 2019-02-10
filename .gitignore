@@ -1,0 +1,9 @@
+# dirs
+/.idea
+/out
+/target
+/META-INF
+
+
+# files
+*.iml
