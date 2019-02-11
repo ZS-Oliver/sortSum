@@ -1,12 +1,12 @@
 package hadoop.mapreduce.bean;
 
-import org.apache.hadoop.io.Writable;
+import org.apache.hadoop.io.WritableComparable;
 
 import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
 
-public class FlowBean implements Writable {
+public class FlowBean implements WritableComparable<FlowBean> {
 
     private String phone;
     private long upFlow;
@@ -79,5 +79,11 @@ public class FlowBean implements Writable {
         downFlow = dataInput.readLong();
         sumFlow = dataInput.readLong();
 
+    }
+
+
+    @Override
+    public int compareTo(FlowBean o) {
+        return this.sumFlow > o.sumFlow ? -1 : 1;
     }
 }
